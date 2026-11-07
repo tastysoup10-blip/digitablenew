@@ -24,7 +24,7 @@ const config = {
 			$svgeditor: resolve(rootDir, '../svgeditor/src/lib')
 		},
 		experimental: {
-			instrumentation: { server: true },
+			instrumentation: { server: false },
 			tracing: { server: true }
 		},
 		paths: {
