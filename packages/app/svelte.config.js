@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -7,31 +7,28 @@ const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
 	compilerOptions: {
 		experimental: {
 			async: true
 		}
 	},
 	preprocess: vitePreprocess(),
-
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: '404.html',
+			strict: false
+		}),
 		alias: {
 			$svgeditor: resolve(rootDir, '../svgeditor/src/lib')
 		},
 		experimental: {
-			instrumentation: {
-				server: true
-			},
-			tracing: {
-				server: true
-			}
+			instrumentation: { server: true },
+			tracing: { server: true }
 		},
 		paths: {
-			// Set BASE_PATH at build time for a GitHub Pages project deployment.
-			base: process.env.BASE_PATH ?? '/app'
+			base: process.env.BASE_PATH ?? '/digitablenew/app'
 		}
 	}
 };
