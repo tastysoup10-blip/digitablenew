@@ -35,7 +35,9 @@ jobs:
         run: bun install
 
       - name: Build SVG canvas dependency
-        run: bun x vite build
+        run: |
+          npm install --no-save --ignore-scripts vite
+          ./node_modules/.bin/vite build
         working-directory: svgedit/packages/svgcanvas
 
       - name: Build static app
