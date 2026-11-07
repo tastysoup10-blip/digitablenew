@@ -30,7 +30,8 @@ const config = {
 			}
 		},
 		paths: {
-			base: '/app'
+			// Set BASE_PATH at build time for a GitHub Pages project deployment.
+			base: process.env.BASE_PATH ?? '/app'
 		}
 	}
 };
