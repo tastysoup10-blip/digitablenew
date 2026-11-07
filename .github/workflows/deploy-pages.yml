@@ -36,7 +36,7 @@ jobs:
 
       - name: Build SVG canvas dependency
         run: |
-          npm install --prefix "$GITHUB_WORKSPACE/svgedit/packages/svgcanvas" --no-save --ignore-scripts vite
+          npm install --prefix "$GITHUB_WORKSPACE/svgedit/packages/svgcanvas" --no-save --ignore-scripts vite pathseg
           test -x "$GITHUB_WORKSPACE/svgedit/packages/svgcanvas/node_modules/.bin/vite"
           "$GITHUB_WORKSPACE/svgedit/packages/svgcanvas/node_modules/.bin/vite" build
         working-directory: svgedit/packages/svgcanvas
