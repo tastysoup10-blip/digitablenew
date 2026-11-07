@@ -35,7 +35,7 @@ jobs:
         run: bun install
 
       - name: Build SVG canvas dependency
-        run: bun run --cwd svgedit/packages/svgcanvas build
+        run: bun x --cwd svgedit/packages/svgcanvas vite build
 
       - name: Build static app
         run: bun run --filter=@svg-table/app build
