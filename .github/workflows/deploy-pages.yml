@@ -49,6 +49,13 @@ jobs:
           BETTER_AUTH_URL: https://tastysoup10-blip.github.io
           BETTER_AUTH_SECRET: github-pages-build-only-placeholder-secret
 
+      - name: Place app under GitHub Pages subpath
+        run: |
+          mkdir -p /tmp/digitable-pages/app
+          cp -a packages/app/build/. /tmp/digitable-pages/app/
+          rm -rf packages/app/build/*
+          cp -a /tmp/digitable-pages/. packages/app/build/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
