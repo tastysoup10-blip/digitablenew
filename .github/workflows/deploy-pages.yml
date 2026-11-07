@@ -46,6 +46,8 @@ jobs:
         env:
           BASE_PATH: /digitablenew/app
           PUBLIC_APP_VERSION: github-pages
+          BETTER_AUTH_URL: https://tastysoup10-blip.github.io
+          BETTER_AUTH_SECRET: github-pages-build-only-placeholder-secret
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
